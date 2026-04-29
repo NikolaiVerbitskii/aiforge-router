@@ -1,0 +1,16 @@
+provider: ollama
+model: qwen2.5-coder:32b
+ollama_base_url: http://ollama:11434
+
+memory:
+  enabled: true
+  backend: sqlite
+  path: /app/data/memory.db
+
+skills:
+  auto_create: true
+  hub: false
+
+server:
+  enabled: true
+  port: 8080

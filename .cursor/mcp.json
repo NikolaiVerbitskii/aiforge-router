@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "hybrid-mcp": {
+      "command": "node",
+      "args": [
+        "./apps/hybrid-mcp/dist/index.js"
+      ],
+      "env": {
+        "CORE_URL": "http://localhost:4111",
+        "OLLAMA_HOST": "http://localhost:11434",
+        "HERMES_HOST": "http://localhost:8080",
+        "MASTRA_PORT": "4111"
+      }
+    }
+  }
+}

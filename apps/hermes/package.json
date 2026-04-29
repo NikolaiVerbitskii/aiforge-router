@@ -1,0 +1,13 @@
+{
+  "name": "@apps/hermes",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "echo \"hermes is container-managed\"",
+    "dev": "echo \"hermes is container-managed\"",
+    "lint": "echo \"hermes config only\"",
+    "test": "echo \"hermes has no local tests\"",
+    "typecheck": "echo \"hermes has no TypeScript code\"",
+    "clean": "echo \"hermes has no build artifacts\""
+  }
+}

@@ -1,3 +1,9 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
 # Logs
 logs
 *.log
@@ -141,3 +147,10 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Turborepo
+.turbo/
+
+# Monorepo build outputs
+**/dist/
+**/coverage/

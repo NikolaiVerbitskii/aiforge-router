@@ -1,0 +1,12 @@
+{
+  "name": "@packages/config-eslint",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "index.js"
+  ],
+  "devDependencies": {
+    "eslint": "catalog:lint"
+  }
+}

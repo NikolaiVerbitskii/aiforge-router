@@ -1,0 +1,60 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+  hermes:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes
+    command: ["hermes", "gateway", "run"]
+    depends_on:
+      - ollama
+    ports:
+      - "8080:8080"
+    environment:
+      OLLAMA_BASE_URL: http://ollama:11434
+    volumes:
+      - ./apps/hermes/hermes.config.yaml:/app/hermes.config.yaml
+      - hermes_data:/app/data
+    restart: unless-stopped
+
+  hybrid-core:
+    build:
+      context: .
+      dockerfile: apps/hybrid-core/Dockerfile
+    container_name: hybrid-core
+    depends_on:
+      - ollama
+      - hermes
+    environment:
+      PORT: "4111"
+      OLLAMA_HOST: http://ollama:11434
+      HERMES_HOST: http://hermes:8080
+    ports:
+      - "4111:4111"
+    restart: unless-stopped
+
+  hybrid-mcp:
+    build:
+      context: .
+      dockerfile: apps/hybrid-mcp/Dockerfile
+    container_name: hybrid-mcp
+    depends_on:
+      - hybrid-core
+    environment:
+      PORT: "4120"
+      CORE_URL: http://hybrid-core:4111
+      OLLAMA_HOST: http://ollama:11434
+      HERMES_HOST: http://hermes:8080
+    ports:
+      - "4120:4120"
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
+  hermes_data:

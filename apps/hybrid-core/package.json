@@ -1,0 +1,29 @@
+{
+  "name": "@apps/hybrid-core",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/main.ts",
+    "start": "node dist/main.js",
+    "lint": "eslint .",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@types/node": "25.6.0",
+    "eslint": "catalog:lint",
+    "tsx": "4.21.0",
+    "typescript": "catalog:",
+    "vitest": "catalog:test"
+  },
+  "dependencies": {
+    "@nestjs/axios": "4.0.1",
+    "@nestjs/common": "11.1.19",
+    "@nestjs/core": "11.1.19",
+    "@nestjs/platform-express": "11.1.19",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2"
+  }
+}
