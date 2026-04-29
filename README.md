@@ -1,4 +1,6 @@
-# Hybrid LLM System 
+# aiforge-router
+
+> MCP bridge between local LLMs and remote agent systems — routes coding tasks across both based on complexity.
 
 Local-first hybrid coding system design that routes coding tasks through local models and tooling.
 
